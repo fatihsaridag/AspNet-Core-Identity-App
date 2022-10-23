@@ -155,5 +155,9 @@ C:\Users\fsari\source\repos\IdentityApp\IdentityApp\bin\Debug\net5.0\runtimes\wi
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\View.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\bin\Debug\net5.0\libman.json
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Shared\AdminLayout.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\SignUp.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs

@@ -8,5 +8,6 @@ namespace IdentityApp.Models
 {
     public class AppUser : IdentityUser
     {
+       
     }
 }
