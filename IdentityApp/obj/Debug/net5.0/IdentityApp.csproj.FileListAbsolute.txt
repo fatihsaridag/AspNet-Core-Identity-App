@@ -161,3 +161,4 @@ C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\SignUp.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\Index.cshtml.g.cs

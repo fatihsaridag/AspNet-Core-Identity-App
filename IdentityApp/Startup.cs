@@ -1,6 +1,8 @@
+﻿using IdentityApp.CustomValidation;
 using IdentityApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -31,8 +33,37 @@ namespace IdentityApp
                 opts.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
 
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddIdentity<AppUser, AppRole>(opts => {
+                opts.User.RequireUniqueEmail = true;
+                opts.User.AllowedUserNameCharacters = "abcçdefghıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._";
 
+
+                opts.Password.RequiredLength = 4;   //En az 4 karakter uzunlugunda şifre
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false; //Zorla küçük karakter girmesini istemiyoruz.
+                opts.Password.RequireUppercase = false; // Kullanıcıdan zorla uppercase girmesini istemiyoruz.
+                opts.Password.RequireDigit = false;
+
+
+            }).AddPasswordValidator<CustomPasswordValidator>().AddUserValidator<CustomUserValidator>().AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<AppIdentityDbContext>();
+
+             
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Home/Login");  //Ben kullanýcý giriþi yapmadan admin areaya eriþmek istersek sistem otomatik olarak bu sayfaya yönlendiriyor olacak.
+                options.LogoutPath = new PathString("/Home/Logout");
+                options.Cookie = new CookieBuilder
+                {
+                    //Cookie ayarlarýs
+                    Name = "BlogProjem",
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Strict,
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest
+                };
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
+            });
             services.AddMvc();
             services.AddRazorPages();
         }
