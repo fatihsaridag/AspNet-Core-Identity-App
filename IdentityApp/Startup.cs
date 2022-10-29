@@ -54,7 +54,7 @@ namespace IdentityApp
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = new PathString("/Home/Login");  //Ben kullanýcý giriþi yapmadan admin areaya eriþmek istersek sistem otomatik olarak bu sayfaya yönlendiriyor olacak.
-                options.LogoutPath = new PathString("/Home/Logout");
+                options.LogoutPath = new PathString("/Member/Logout");
                 options.Cookie = new CookieBuilder
                 {
                     //Cookie ayarlarýs

@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace IdentityApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-
-
-        public HomeController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+  
+        public HomeController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager) : base(userManager,signInManager)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+         
         }
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Member");
+            }
             return View();
         }
 
@@ -116,10 +116,7 @@ namespace IdentityApp.Controllers
                 }
                 else
                 {
-                    foreach (var item in result.Errors)     //IdentityErrordan dönüyor.
-                    {
-                        ModelState.AddModelError("", item.Description);   //Yalnızca özet kısmı altında hatalarımızın gözükmesini istiyoruz o yüzden boş
-                    }
+                    AddModelError(result);
                 }
 
             }
@@ -138,7 +135,7 @@ namespace IdentityApp.Controllers
         public IActionResult ResetPassword(PasswordResetViewModel passwordResetViewModel)
         {
             // Böyle bir kullanıcı var mı? Test edelim
-            AppUser user = _userManager.FindByEmailAsync(passwordResetViewModel.Email).Result;
+            AppUser user = CurrentUser;
             // böyle bir kullanıcı varsa 
             if (user != null)
             {
@@ -197,10 +194,7 @@ namespace IdentityApp.Controllers
                 }
                 else
                 {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
+                    AddModelError(result);
                 }
             }
             else

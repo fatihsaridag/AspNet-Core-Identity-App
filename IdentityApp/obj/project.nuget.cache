@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IqKWYhqbTI/y0Um1q+u2S8DpvrBXStkCf/XZDe6l2A2pCQADaJeAjgW6pfxqBxflaJR02c7aPl6pHtII0j/SKw==",
+  "dgSpecHash": "2BAIrUSS60YOa2ef4aXroG+GsCG1Xe/xn4lqN8SwsvvoP5O6+x8aDOT0B/af13iObpMOG2hGxc9NUBaaDTpTqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fsari\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\fsari\\.nuget\\packages\\mapster\\7.3.0\\mapster.7.3.0.nupkg.sha512",
+    "C:\\Users\\fsari\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",
     "C:\\Users\\fsari\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.7\\microsoft.aspnetcore.authentication.facebook.5.0.7.nupkg.sha512",
     "C:\\Users\\fsari\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.7\\microsoft.aspnetcore.authentication.google.5.0.7.nupkg.sha512",
     "C:\\Users\\fsari\\.nuget\\packages\\microsoft.aspnetcore.authentication.microsoftaccount\\5.0.7\\microsoft.aspnetcore.authentication.microsoftaccount.5.0.7.nupkg.sha512",
