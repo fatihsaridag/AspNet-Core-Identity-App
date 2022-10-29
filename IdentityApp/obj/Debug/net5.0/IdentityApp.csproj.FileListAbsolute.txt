@@ -162,5 +162,10 @@ C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\Index.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\ResetPassword.cshtml.g.cs
-C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\IdentityApp.csproj.AssemblyReference.cache
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Home\ResetPasswordConfirm.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\_MemberLayout.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\bin\Debug\net5.0\Mapster.dll
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\bin\Debug\net5.0\Mapster.Core.dll
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\PasswordChange.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\UserEdit.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\IdentityApp.csproj.AssemblyReference.cache
