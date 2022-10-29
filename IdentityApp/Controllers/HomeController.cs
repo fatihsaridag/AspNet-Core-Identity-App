@@ -129,5 +129,86 @@ namespace IdentityApp.Controllers
         }
 
 
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(PasswordResetViewModel passwordResetViewModel)
+        {
+            // Böyle bir kullanıcı var mı? Test edelim
+            AppUser user = _userManager.FindByEmailAsync(passwordResetViewModel.Email).Result;
+            // böyle bir kullanıcı varsa 
+            if (user != null)
+            {
+                // Token Oluşturuyoruz
+                string passwordResetToken = _userManager.GeneratePasswordResetTokenAsync(user).Result;
+                // Linki Burada gönderiyoruz
+                string passworResetLink = Url.Action("ResetPasswordConfirm", "Home", new
+                {
+                    userId = user.Id,
+                    token = passwordResetToken
+                }, HttpContext.Request.Scheme);
+
+                // deneme.com/Home/ResetPasswordConfirm?userId=jdkjasbhdtoken=kdlksamdl
+
+                Helper.PasswordReset.PasswordResetSendEmail(passworResetLink, user.Email);
+                ViewBag.status = "success";
+
+            }
+            // hata varsa
+            else
+            {
+                ModelState.AddModelError("", "Sistemde kayıtlı email adresi bulunamamıştır!!!");
+            }
+
+
+            return View(passwordResetViewModel);
+        }
+
+
+
+        public IActionResult ResetPasswordConfirm(string userId , string token)
+        {
+            TempData["userId"] = userId;
+            TempData["token"] = token;
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordConfirm([Bind("PasswordNew")]PasswordResetViewModel passwordResetViewModel)
+        {
+            var token = TempData["token"].ToString();
+            var userId = TempData["userId"].ToString();
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user!=null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user,token,passwordResetViewModel.PasswordNew);
+                if (result.Succeeded)
+                {
+                    // Kullanıcının securityStampini aktif edicez. Yeni bir security
+                    await _userManager.UpdateSecurityStampAsync(user);  //Bunu yapmazsak kullanıcı eski şifreyle dolaşmaya devam eder. Bunu engellemek için
+                    ViewBag.status = "success";
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Hata meydana gelmiştir. Lütfen daha sonra tekrar deneyiniz.");
+            }
+            return View(passwordResetViewModel);
+        }
+
     }
 }

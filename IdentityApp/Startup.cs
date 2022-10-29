@@ -33,6 +33,9 @@ namespace IdentityApp
                 opts.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
 
+
+
+
             services.AddIdentity<AppUser, AppRole>(opts => {
                 opts.User.RequireUniqueEmail = true;
                 opts.User.AllowedUserNameCharacters = "abcçdefghıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._";
@@ -45,9 +48,8 @@ namespace IdentityApp
                 opts.Password.RequireDigit = false;
 
 
-            }).AddPasswordValidator<CustomPasswordValidator>().AddUserValidator<CustomUserValidator>().AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<AppIdentityDbContext>();
+            }).AddPasswordValidator<CustomPasswordValidator>().AddUserValidator<CustomUserValidator>().AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 
-             
 
             services.ConfigureApplicationCookie(options =>
             {
