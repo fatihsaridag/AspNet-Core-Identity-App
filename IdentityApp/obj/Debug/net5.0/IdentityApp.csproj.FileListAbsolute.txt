@@ -169,3 +169,8 @@ C:\Users\fsari\source\repos\IdentityApp\IdentityApp\bin\Debug\net5.0\Mapster.Cor
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\PasswordChange.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\UserEdit.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\IdentityApp.csproj.AssemblyReference.cache
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\_AdminLayout.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Member\AccessDenied.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\Users.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\RoleCreate.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\Roles.cshtml.g.cs
