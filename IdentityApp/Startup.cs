@@ -47,7 +47,6 @@ namespace IdentityApp
                 opts.Password.RequireUppercase = false; // Kullanıcıdan zorla uppercase girmesini istemiyoruz.
                 opts.Password.RequireDigit = false;
 
-
             }).AddPasswordValidator<CustomPasswordValidator>().AddUserValidator<CustomUserValidator>().AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 
 
@@ -55,6 +54,7 @@ namespace IdentityApp
             {
                 options.LoginPath = new PathString("/Home/Login");  //Ben kullanýcý giriþi yapmadan admin areaya eriþmek istersek sistem otomatik olarak bu sayfaya yönlendiriyor olacak.
                 options.LogoutPath = new PathString("/Member/Logout");
+                options.AccessDeniedPath = new PathString("/Member/AccessDenied");
                 options.Cookie = new CookieBuilder
                 {
                     //Cookie ayarlarýs
