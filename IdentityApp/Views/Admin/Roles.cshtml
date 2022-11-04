@@ -12,8 +12,10 @@
 
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Rol İsmi</td>
+            <th>Id</th>
+            <th>Rol İsmi</th>
+            <th>Silme</th>
+            <th>Güncelleme</th>
         </tr>
     </thead>
     @foreach (var item in Model)
@@ -22,6 +24,12 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Name</td>
+                <td>
+                    <form asp-action="RoleDelete" asp-route-id="@item.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                </td>
+                <td><a class="btn bg-info" asp-action="RoleUpdate" asp-route-id="@item.Id">Güncelle</a></td>
             </tr>
         </tbody>
     }
@@ -30,6 +38,6 @@
 </table>
 
 
-<a asp-controller="Admin" asp-action="RoleCreate" class="btn btn-info">Role Oluştur</a>
+<a asp-controller="Admin" asp-action="RoleCreate" class="btn btn-outline-primary">Role Oluştur</a>
 
 

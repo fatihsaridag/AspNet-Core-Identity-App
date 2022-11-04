@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 2 "C:\Users\fsari\source\repos\IdentityApp\IdentityApp\Views\_ViewImports.cshtml"
+#line 3 "C:\Users\fsari\source\repos\IdentityApp\IdentityApp\Views\_ViewImports.cshtml"
 using IdentityApp.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\fsari\source\repos\IdentityApp\IdentityApp\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\fsari\source\repos\IdentityApp\IdentityApp\Views\_ViewImports.cshtml"
 using IdentityApp.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f239e84609f152550b6924b7682cfc79ad9a7067", @"/Views/Member/PasswordChange.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9dbcc90f107eb1f66fa475075977e3a585bffbe", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"95cade4efbbd7107a73bb230e2c4dd587df5ddab", @"/Views/_ViewImports.cshtml")]
     public class Views_Member_PasswordChange : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IdentityApp.ViewModels.PasswordChangeViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("text-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

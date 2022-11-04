@@ -174,3 +174,5 @@ C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\Users.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\RoleCreate.cshtml.g.cs
 C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\Roles.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\RoleUpdate.cshtml.g.cs
+C:\Users\fsari\source\repos\IdentityApp\IdentityApp\obj\Debug\net5.0\Razor\Views\Admin\RoleAssign.cshtml.g.cs
