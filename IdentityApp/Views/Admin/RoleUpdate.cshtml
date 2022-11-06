@@ -1,0 +1,28 @@
+﻿@model IdentityApp.ViewModels.RoleViewModel
+
+@{
+    ViewData["Title"] = "RoleUpdate";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+ 
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="text-center">Rol Güncelleme</h3>
+        <form asp-action="RoleUpdate" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <input type="hidden"  asp-for="Id"/>   @* Burada bunu yazmamızın sebebi kullanıcı submit ettiği zaman id yi geri dönmemiz ve onunla controllerda işlem yapmamız.*@
+
+        
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
