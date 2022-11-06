@@ -26,12 +26,33 @@
                 <td>@Model.PhoneNumber</td>
             </tr>
             <tr>
+
                 <th>City</th>
-                <td>@Model.City</td>
+                <td>
+                    @if (!String.IsNullOrEmpty(Model.City))
+                    {
+                        @Model.City
+                    }
+                    else
+                    {
+                        <span>Belirtilmemiş</span>
+                    }
+                </td>
             </tr>
             <tr>
                 <th>Doğum Tarihi</th>
-                <td>@Model.BirthDay.Value.ToShortDateString()</td>
+                <td>
+                
+                @if (Model.BirthDay!=null)
+                {
+                    @Model.BirthDay?.ToShortDateString()
+                }
+                else
+                {
+                    <span>Belirtilmemiş</span>
+                }
+
+
             </tr>
             <tr>
                 <th>Cinsiyet</th>

@@ -1,5 +1,7 @@
 ﻿using IdentityApp.CustomValidation;
 using IdentityApp.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,12 +30,32 @@ namespace IdentityApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<IAuthorizationHandler, ExpireDateExchangeHandler>();
             services.AddDbContext<AppIdentityDbContext>(opts =>
             {
                 opts.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
             });
 
 
+            services.AddAuthorization(opts =>
+           {
+               opts.AddPolicy("AnkaraPolicy", policy =>
+                {
+                    policy.RequireClaim("city","Ankara"); // Şu kısıtlamaya sahip kısmı zorunlu olması gerek
+                });
+
+               opts.AddPolicy("ViolancePolicy", policy =>
+              {
+                  policy.RequireClaim("violance");          //Kullanıcı bu claime sahipse 15 yaşından büyüktür anlamına geliyor.
+              });
+
+               opts.AddPolicy("ExchangePolicy", policy =>
+               {
+                   policy.AddRequirements(new ExpireDateExchangeRequirement());
+               });
+
+           });
 
 
             services.AddIdentity<AppUser, AppRole>(opts => {
@@ -67,6 +89,7 @@ namespace IdentityApp
                 options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
             });
             services.AddMvc();
+            services.AddScoped<IClaimsTransformation, ClaimProvider.ClaimProvider>();
             services.AddRazorPages();
         }
 

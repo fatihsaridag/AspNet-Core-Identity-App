@@ -1,6 +1,7 @@
 ﻿using IdentityApp.Models;
 using IdentityApp.ViewModels;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,10 +11,9 @@ using System.Threading.Tasks;
 
 namespace IdentityApp.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : BaseController
     {
-
-
         public AdminController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager) : base(userManager,null,roleManager)
         {
         }
@@ -22,6 +22,12 @@ namespace IdentityApp.Controllers
         {
          
             return View();
+        }
+
+
+        public IActionResult Claims()
+        {
+            return View(User.Claims.ToList());
         }
 
 

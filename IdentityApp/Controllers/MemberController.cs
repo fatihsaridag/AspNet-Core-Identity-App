@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.IO;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace IdentityApp.Controllers
@@ -138,11 +139,82 @@ namespace IdentityApp.Controllers
         } 
 
 
-        public IActionResult AccessDenied()
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+
+            if (ReturnUrl.ToLower().Contains("Violance"))
+            {
+                ViewBag.message = "Erişmeye çalıştığınız sayfa şiddet videoları içerdiğinden dolayı 15 yaşından büyük olmanız gerekmektedir.";
+            }
+            else if (ReturnUrl.ToLower().Contains("Exchange"))
+            {
+                ViewBag.message = "30 günlük ücretsiz deneme hakkınız sona ermiştir.";
+
+            }
+            else if (ReturnUrl.ToLower().Contains("Ankara"))
+            {
+                ViewBag.message = "Yalnızca Ankara şehrine sahip kullanıcılar erişebilir.";
+
+            }
+            else
+            {
+                ViewBag.message = "Bu sayfaya erişim izniniz yoktur. Erişim izni almak için site yöneticisyle görüşün";
+            }
+
+            return View();
+        }
+
+
+        [Authorize(Roles ="Editor,Admin")]
+        public IActionResult Editor()
         {
             return View();
         }
 
 
+        [Authorize(Roles = "Manager,Admin")]
+        public IActionResult Manager()
+        {
+            return View();
+        }
+
+        [Authorize(Policy="AnkaraPolicy")]
+        public IActionResult Ankara()
+        {
+            return View();
+        }
+
+        [Authorize(Policy = "ViolancePolicy")]
+        public IActionResult Violance()
+        {
+            return View();
+        }
+
+
+        //Claimi veritabanına ekleyeceğimiz yer
+        public async Task<IActionResult> ExchangeRedirect() 
+        {
+            bool result = User.HasClaim(x => x.Type == "ExpireDateExchange");       //Benim belirteceğim claim var mı yoksa ona bir bakalım. 
+            if (!result )
+            {
+                Claim ExpireDateExchange = new Claim("ExpireDateExchange",DateTime.Now.AddDays(30).Date.ToShortDateString(),ClaimValueTypes.String,"Internal");
+
+                await _userManager.AddClaimAsync(CurrentUser, ExpireDateExchange);
+                await _signInManager.SignOutAsync();
+                await _signInManager.SignInAsync(CurrentUser, true);
+
+            }
+
+
+            return RedirectToAction("Exchange");
+
+        }
+
+
+        [Authorize(Policy = "ExchangePolicy")]
+        public IActionResult Exchange()
+        {
+            return View();
+        }
     }
 }
