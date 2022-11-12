@@ -50,6 +50,11 @@ namespace IdentityApp.Controllers
                         return View(userlogin);
                     }
 
+                    if (_userManager.IsEmailConfirmedAsync(user).Result == false)
+                    {
+                        ModelState.AddModelError("", "Email Adresini onaylanmamıştır. Lütfen epostanızı kontrol edin ");
+                        return View(userlogin);
+                    }
 
                     await _signInManager.SignOutAsync();            //Bizim yazdıgımız önceden bir cooki varsa onu silsin
                     var result = await _signInManager.PasswordSignInAsync(user, userlogin.Password,userlogin.RememberMe,false);       //3. parametrede 60 gün cookiyi aktif hale getirdik. 4.Parametrede kullanıcıyı kitleyip kitlememe
@@ -112,6 +117,14 @@ namespace IdentityApp.Controllers
 
                 if (result.Succeeded)
                 {
+                    string confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    string link = Url.Action("ConfirmEmail", "Home", new
+                    {
+                        userId = user.Id,
+                        token = confirmationToken
+                    },protocol:HttpContext.Request.Scheme);
+                    Helper.EmailConfirmation.SendEmail(link, user.Email);
+
                     return RedirectToAction("Login");
                 }
                 else
@@ -202,6 +215,23 @@ namespace IdentityApp.Controllers
                 ModelState.AddModelError("", "Hata meydana gelmiştir. Lütfen daha sonra tekrar deneyiniz.");
             }
             return View(passwordResetViewModel);
+        }
+
+
+        public async Task<IActionResult> ConfirmEmail(string userId , string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            IdentityResult result = await _userManager.ConfirmEmailAsync(user,token);
+
+            if (result.Succeeded)
+            {
+                ViewBag.status = "Email adresiniz onaylanmıştır.Login ekranından giriş yapabilirsiniz.";
+            }
+            else
+            {
+                ViewBag.status = "Bir hata meydana geldi lütfen daha sonra tekrar deneyiniz";
+            }
+            return View();
         }
 
     }

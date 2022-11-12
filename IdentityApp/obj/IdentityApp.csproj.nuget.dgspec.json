@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {}
+    "C:\\Users\\fatih\\source\\repos\\AspNet-Core-Identity-App\\IdentityApp\\IdentityApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\IdentityApp.csproj": {
+    "C:\\Users\\fatih\\source\\repos\\AspNet-Core-Identity-App\\IdentityApp\\IdentityApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
+        "projectUniqueName": "C:\\Users\\fatih\\source\\repos\\AspNet-Core-Identity-App\\IdentityApp\\IdentityApp.csproj",
         "projectName": "IdentityApp",
-        "projectPath": "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\IdentityApp.csproj",
-        "packagesPath": "C:\\Users\\fsari\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fsari\\source\\repos\\IdentityApp\\IdentityApp\\obj\\",
+        "projectPath": "C:\\Users\\fatih\\source\\repos\\AspNet-Core-Identity-App\\IdentityApp\\IdentityApp.csproj",
+        "packagesPath": "C:\\Users\\fatih\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fatih\\source\\repos\\AspNet-Core-Identity-App\\IdentityApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fsari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fatih\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +85,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -100,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
