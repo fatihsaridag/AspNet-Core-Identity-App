@@ -28,17 +28,17 @@ namespace IdentityApp.ClaimProvider
 
                 var user = await _userManager.FindByNameAsync(identity.Name); //Kullanıcıyı bulmamız lazım 
 
-                if (user.BirthDay != null)
-                {
-                    var today = DateTime.Today;
-                    var age = today.Year - user.BirthDay?.Year;
-                    if (age > 15)
-                    {
-                        Claim ViolanceClaim = new Claim("violance", true.ToString(), ClaimValueTypes.String, "Internal");     //City isimli bir claim ekliyoruz. Parametreler : Tipi,value,valuetype,ıssuer
-                        identity.AddClaim(ViolanceClaim);
-                    }
+                //if (user.BirthDay != null)
+                //{
+                //    var today = DateTime.Today;
+                //    var age = today.Year - user.BirthDay?.Year;
+                //    if (age > 15)
+                //    {
+                //        Claim ViolanceClaim = new Claim("violance", true.ToString(), ClaimValueTypes.String, "Internal");     //City isimli bir claim ekliyoruz. Parametreler : Tipi,value,valuetype,ıssuer
+                //        identity.AddClaim(ViolanceClaim);
+                //    }
 
-                }
+                //}
 
                 if (user != null)               //user var ise 
                 {

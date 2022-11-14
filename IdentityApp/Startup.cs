@@ -57,10 +57,17 @@ namespace IdentityApp
 
            });
 
+            services.AddAuthentication().AddFacebook(opts =>
+            {
+                opts.AppId = Configuration["Authentication:Facebook:AppId"];
+                opts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
+
 
             services.AddIdentity<AppUser, AppRole>(opts => {
                 opts.User.RequireUniqueEmail = true;
-                opts.User.AllowedUserNameCharacters = "abcçdefghıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._";
+                opts.User.AllowedUserNameCharacters = "abcçdefgğhıijklmnoöpqrsştuüvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._";
 
 
                 opts.Password.RequiredLength = 4;   //En az 4 karakter uzunlugunda şifre
